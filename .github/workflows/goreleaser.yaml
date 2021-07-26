@@ -1,0 +1,26 @@
+name: private release
+
+on:
+  push:
+
+jobs:
+  goreleaser:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        goreleaser:
+          - v0.174.0
+          - v0.173.2
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          version: ${{ matrix.goreleaser }}
+          args: --snapshot
