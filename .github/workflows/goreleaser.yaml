@@ -7,6 +7,7 @@ jobs:
   goreleaser:
     runs-on: windows-latest
     strategy:
+      fail-fast: false
       matrix:
         goreleaser:
           - v0.174.0
