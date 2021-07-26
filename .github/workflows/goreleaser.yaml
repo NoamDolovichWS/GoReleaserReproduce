@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         goreleaser:
-          - v0.174.0
+          - v0.174.1
           - v0.173.2
     steps:
       - uses: actions/checkout@v2
